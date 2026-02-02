@@ -10,7 +10,6 @@ import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { ExitIntentPopup, ScrollTriggeredPopup, TimedPopup, ContactFormPopup } from './components/Popups';
-import { ContactSection } from './components/ContactSection';
 
 const App: React.FC = () => {
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -85,10 +84,8 @@ const App: React.FC = () => {
         <PricingSection onOpenContact={openContactPopup} />
         <FAQ />
         <FinalCTA onOpenContact={openContactPopup} />
-
-        <ContactSection onOpenContact={openContactPopup} />
       </main>
-      <Footer />
+      <Footer onOpenContact={openContactPopup} />
 
       {/* Contact form popup */}
       {showContactPopup && <ContactFormPopup onClose={closeContactPopup} pkgName={selectedPackage} /> }
