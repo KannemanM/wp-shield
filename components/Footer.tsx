@@ -27,15 +27,19 @@ export const Footer: React.FC<{ onOpenContact?: (pkg?: string) => void }> = ({ o
           </div>
 
           <div className="col-span-1 md:col-span-2">
-            <ContactSection onOpenContact={onOpenContact} />
+            <ContactSection onOpenContact={onOpenContact} compact />
           </div>
         </div>
 
         <div className="h-px bg-gray-200 mb-8"></div>
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} WP Shield Pro. Todos los derechos reservados.</p>
-          
+        <div className="flex flex-col md:flex-row items-center gap-4 text-gray-400 text-sm text-center md:justify-between">
+          <p className="w-full md:w-auto">© {new Date().getFullYear()} WP Shield Pro. Todos los derechos reservados.</p>
+          <div className="flex gap-4 justify-center md:justify-start w-full md:w-auto">
+             <div className="bg-white px-3 py-1 rounded border border-gray-200">VISA</div>
+             <div className="bg-white px-3 py-1 rounded border border-gray-200">MASTERCARD</div>
+             <div className="bg-white px-3 py-1 rounded border border-gray-200">PAYPAL</div>
+          </div>
         </div>
       </div>
     </footer>

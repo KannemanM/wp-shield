@@ -56,7 +56,7 @@ export const PricingSection: React.FC<{ onOpenContact?: (pkg?: string) => void }
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-8 items-start">
           {packages.map((pkg, idx) => (
             <div 
               key={idx} 

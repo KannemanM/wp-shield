@@ -25,7 +25,7 @@ export const ConsequencesSection: React.FC = () => {
           <div className="grid lg:grid-cols-6 gap-8">
             {timeline.map((item, idx) => (
               <div key={idx} className="group">
-                <div className={`w-full aspect-square lg:aspect-auto lg:h-32 mb-6 rounded-2xl ${item.color} flex flex-col items-center justify-center text-white p-4 shadow-lg group-hover:scale-105 transition-transform`}>
+                <div className={`w-full h-40 sm:h-36 md:h-32 lg:h-32 mb-6 rounded-2xl ${item.color} flex flex-col items-center justify-center text-white p-4 shadow-lg group-hover:scale-105 transition-transform`}>
                   <MapPin className="w-5 h-5 mb-2" />
                   <span className="text-xs font-bold uppercase tracking-widest opacity-80">{item.day}</span>
                   <p className="text-sm font-bold text-center mt-1 leading-tight">{item.event}</p>
