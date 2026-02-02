@@ -35,7 +35,7 @@ export const ProblemSection: React.FC = () => {
               </div>
             ))}
             
-            <a href="#contratar" className="mt-8 text-orange-400 font-bold text-xl flex items-center gap-2 hover:translate-x-2 transition-transform">
+            <a href="#precios" className="mt-8 text-orange-400 font-bold text-xl flex items-center gap-2 hover:translate-x-2 transition-transform">
               Protege tu sitio ahora!
             </a>
           </div>
