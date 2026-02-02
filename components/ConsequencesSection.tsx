@@ -23,17 +23,28 @@ export const ConsequencesSection: React.FC = () => {
 
         <div className="relative mb-20">
           <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 hidden lg:block"></div>
+
           <div className="grid lg:grid-cols-6 gap-8">
             {timeline.map((item, idx) => (
-              <div key={idx} className="relative group">
+              <div key={idx} className="group">
                 <div className={`w-full aspect-square lg:aspect-auto lg:h-32 mb-6 rounded-2xl ${item.color} flex flex-col items-center justify-center text-white p-4 shadow-lg group-hover:scale-105 transition-transform`}>
                   <MapPin className="w-5 h-5 mb-2" />
                   <span className="text-xs font-bold uppercase tracking-widest opacity-80">{item.day}</span>
                   <p className="text-sm font-bold text-center mt-1 leading-tight">{item.event}</p>
                 </div>
-                <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border-4 border-gray-200 rounded-full"></div>
               </div>
             ))}
+          </div>
+
+          {/* Overlay dots aligned to the center line (visible on lg and above) */}
+          <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 hidden lg:block pointer-events-none">
+            <div className="grid lg:grid-cols-6 gap-8">
+              {timeline.map((_, idx) => (
+                <div key={idx} className="flex justify-center">
+                  <div className="w-4 h-4 bg-white border-4 border-gray-200 rounded-full"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
