@@ -84,7 +84,7 @@ const App: React.FC = () => {
         <SolutionSection />
         <PricingSection onOpenContact={openContactPopup} />
         <FAQ />
-        <FinalCTA />
+        <FinalCTA onOpenContact={openContactPopup} />
 
         <ContactSection onOpenContact={openContactPopup} />
       </main>
