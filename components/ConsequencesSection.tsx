@@ -21,9 +21,7 @@ export const ConsequencesSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="relative mb-20">
-          <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 hidden lg:block"></div>
-
+        <div className="mb-20">
           <div className="grid lg:grid-cols-6 gap-8">
             {timeline.map((item, idx) => (
               <div key={idx} className="group">
@@ -34,17 +32,6 @@ export const ConsequencesSection: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Overlay dots aligned to the center line (visible on lg and above) */}
-          <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 hidden lg:block pointer-events-none">
-            <div className="grid lg:grid-cols-6 gap-8">
-              {timeline.map((_, idx) => (
-                <div key={idx} className="flex justify-center">
-                  <div className="w-4 h-4 bg-white border-4 border-gray-200 rounded-full"></div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
