@@ -54,10 +54,6 @@ export const PricingSection: React.FC<{ onOpenContact?: (pkg?: string) => void }
           <h2 className="text-3xl md:text-5xl font-extrabold text-blue-900 mb-6">
             Elige tu nivel de protección:
           </h2>
-          <div className="inline-flex items-center gap-3 bg-green-50 text-green-700 px-6 py-3 rounded-2xl border border-green-100 font-bold">
-            <ShieldCheck className="w-6 h-6" />
-            30 días de garantía total: Si tu hosting te vuelve a alertar, te devolvemos el 100%
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 items-start">
