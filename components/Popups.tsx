@@ -114,7 +114,7 @@ export const ContactFormPopup: React.FC<PopupProps & { pkgName?: string | null }
             <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
             <input required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Teléfono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
             <input required value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="Tu sitio web (https://tusitio.com)" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
-            <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-2xl font-black">Enviar y que nos contacten</button>
+            <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-2xl font-black">Enviar y que me contacten</button>
           </form>
         ) : (
           <div className="py-8 text-center">
