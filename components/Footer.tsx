@@ -35,11 +35,7 @@ export const Footer: React.FC<{ onOpenContact?: (pkg?: string) => void }> = ({ o
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
           <p>© {new Date().getFullYear()} WP Shield Pro. Todos los derechos reservados.</p>
-          <div className="flex gap-4">
-             <div className="bg-white px-3 py-1 rounded border border-gray-200">VISA</div>
-             <div className="bg-white px-3 py-1 rounded border border-gray-200">MASTERCARD</div>
-             <div className="bg-white px-3 py-1 rounded border border-gray-200">PAYPAL</div>
-          </div>
+          
         </div>
       </div>
     </footer>
