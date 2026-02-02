@@ -23,7 +23,7 @@ export const Hero: React.FC<{ id?: string }> = ({ id }) => {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-orange-600/30 transition-all transform hover:scale-105 flex items-center justify-center gap-3">
-            Análisis Gratuito de Tu Sitio
+            Protege tu sitio ahora!
             <ArrowRight className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-2 text-gray-500 font-medium italic">

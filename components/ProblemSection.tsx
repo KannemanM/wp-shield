@@ -36,7 +36,7 @@ export const ProblemSection: React.FC = () => {
             ))}
             
             <button className="mt-8 text-orange-400 font-bold text-xl flex items-center gap-2 hover:translate-x-2 transition-transform">
-              Verifica si tu sitio está en riesgo →
+              Protege tu sitio ahora!
             </button>
           </div>
 

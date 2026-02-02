@@ -44,7 +44,7 @@ export const FinalCTA: React.FC = () => {
                   AGENDAR LLAMADA 15 MIN
                 </button>
                 <button className="bg-blue-600/20 hover:bg-blue-600/40 text-blue-100 px-8 py-4 rounded-2xl font-bold transition-colors">
-                  📋 VER ANÁLISIS GRATUITO
+                  📋 PROTEGE TU SITIO AHORA!
                 </button>
               </div>
               
