@@ -85,15 +85,57 @@ export const ContactFormPopup: React.FC<PopupProps & { pkgName?: string | null }
   const [phone, setPhone] = React.useState('');
   const [website, setWebsite] = React.useState('');
   const [submitted, setSubmitted] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Stub: send data to API or tracking endpoint
-    console.log('Contact form submit', { pkgName, name, email, phone, website });
-    setSubmitted(true);
-    setTimeout(() => {
-      onClose();
-    }, 1400);
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+
+    try {
+      const payload = {
+        name,
+        email,
+        phone,
+        website,
+        pkgName: pkgName ?? ''
+      };
+
+      const res = await fetch('https://formspree.io/f/mkozkvqz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        const msg = body?.error || 'Ocurrió un error al enviar. Intenta nuevamente.';
+        setError(msg);
+        setSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
+      // Small delay so user sees the success message before closing
+      setTimeout(() => {
+        setSubmitting(false);
+        // reset form
+        setName('');
+        setEmail('');
+        setPhone('');
+        setWebsite('');
+        onClose();
+      }, 1400);
+    } catch (err) {
+      console.error('Form submission error', err);
+      setError('No se pudo enviar el formulario. Revisa tu conexión e intenta nuevamente.');
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -114,7 +156,13 @@ export const ContactFormPopup: React.FC<PopupProps & { pkgName?: string | null }
             <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
             <input required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Teléfono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
             <input required value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="Tu sitio web (https://tusitio.com)" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
-            <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-2xl font-black">Enviar y que me contacten</button>
+
+            <div className="text-xs text-gray-500 italic">Al enviar, aceptas que usemos tus datos para contactarte y enviarte información relacionada con el servicio.</div>
+            {error && <div role="alert" className="text-red-600 font-medium">{error}</div>}
+
+            <button type="submit" disabled={submitting} className={`w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-2xl font-black ${submitting ? 'opacity-70 cursor-not-allowed' : ''}`}>
+              {submitting ? 'Enviando...' : 'Enviar y que me contacten'}
+            </button>
           </form>
         ) : (
           <div className="py-8 text-center">
