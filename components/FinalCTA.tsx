@@ -33,6 +33,10 @@ export const FinalCTA: React.FC = () => {
               </div>
             </div>
 
+            <div className="flex items-center justify-center gap-4">
+          <button type="button" onClick={() => onOpenContact?.()} className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-2xl font-black">Protege tu sitio ahora</button>
+        </div>
+
             <div className="flex flex-col items-center gap-6">
               <button type="button" onClick={() => onOpenContact?.()} className="bg-orange-600 hover:bg-orange-700 text-white py-6 rounded-2xl font-black text-2xl shadow-2xl shadow-orange-600/40 transition-all transform hover:scale-105 uppercase tracking-wide">Protege tu sitio ahora</button>
 
