@@ -9,15 +9,18 @@ import { PricingSection } from './components/PricingSection';
 import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
-import { ExitIntentPopup, ScrollTriggeredPopup, TimedPopup } from './components/Popups';
+import { ExitIntentPopup, ScrollTriggeredPopup, TimedPopup, ContactFormPopup } from './components/Popups';
+import { ContactSection } from './components/ContactSection';
 
 const App: React.FC = () => {
   const [showExitPopup, setShowExitPopup] = useState(false);
   const [showScrollPopup, setShowScrollPopup] = useState(false);
   const [showTimedPopup, setShowTimedPopup] = useState(false);
+  const [showContactPopup, setShowContactPopup] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
   // Helper to check if any popup is currently visible to avoid stacking
-  const isAnyPopupVisible = showExitPopup || showScrollPopup || showTimedPopup;
+  const isAnyPopupVisible = showExitPopup || showScrollPopup || showTimedPopup || showContactPopup;
 
   useEffect(() => {
     // Exit intent logic
@@ -54,6 +57,16 @@ const App: React.FC = () => {
     };
   }, [isAnyPopupVisible]);
 
+  const openContactPopup = (pkg?: string) => {
+    if (pkg) setSelectedPackage(pkg);
+    setShowContactPopup(true);
+  };
+
+  const closeContactPopup = () => {
+    setShowContactPopup(false);
+    setSelectedPackage(null);
+  };
+
   const dismissPopup = (type: 'exit' | 'scroll' | 'timed') => {
     localStorage.setItem(`wp-shield-${type}-dismissed`, 'true');
     if (type === 'exit') setShowExitPopup(false);
@@ -69,11 +82,16 @@ const App: React.FC = () => {
         <ProblemSection />
         <ConsequencesSection />
         <SolutionSection />
-        <PricingSection />
+        <PricingSection onOpenContact={openContactPopup} />
         <FAQ />
         <FinalCTA />
+
+        <ContactSection onOpenContact={openContactPopup} />
       </main>
       <Footer />
+
+      {/* Contact form popup */}
+      {showContactPopup && <ContactFormPopup onClose={closeContactPopup} pkgName={selectedPackage} /> }
 
       {/* Popups */}
       {showExitPopup && <ExitIntentPopup onClose={() => dismissPopup('exit')} />}

@@ -22,10 +22,10 @@ export const Hero: React.FC<{ id?: string }> = ({ id }) => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-orange-600/30 transition-all transform hover:scale-105 flex items-center justify-center gap-3">
+          <a href="#contratar" className="w-full sm:w-auto inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-orange-600/30 transition-all transform hover:scale-105 gap-3">
             Protege tu sitio ahora!
             <ArrowRight className="w-6 h-6" />
-          </button>
+          </a>
           <div className="flex items-center gap-2 text-gray-500 font-medium italic">
             <ShieldCheck className="w-5 h-5 text-green-600" />
             Sin compromisos. Solo datos reales.

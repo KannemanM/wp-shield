@@ -46,7 +46,7 @@ const packages = [
   }
 ];
 
-export const PricingSection: React.FC = () => {
+export const PricingSection: React.FC<{ onOpenContact?: (pkg?: string) => void }> = ({ onOpenContact }) => {
   return (
     <section id="precios" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -100,7 +100,7 @@ export const PricingSection: React.FC = () => {
                 {pkg.limit}
               </div>
 
-              <button className={`w-full py-4 rounded-2xl font-black text-lg transition-all transform hover:scale-[1.02] ${pkg.featured ? 'bg-blue-600 text-white shadow-lg shadow-blue-200 hover:bg-blue-700' : 'bg-gray-900 text-white hover:bg-black'}`}>
+              <button type="button" onClick={() => onOpenContact?.(pkg.name)} className={`w-full py-4 rounded-2xl font-black text-lg transition-all transform hover:scale-[1.02] ${pkg.featured ? 'bg-blue-600 text-white shadow-lg shadow-blue-200 hover:bg-blue-700' : 'bg-gray-900 text-white hover:bg-black'}`}>
                 CONTRATAR AHORA
               </button>
             </div>

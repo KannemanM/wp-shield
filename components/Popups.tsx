@@ -78,3 +78,52 @@ export const TimedPopup: React.FC<PopupProps> = ({ onClose }) => (
     </div>
   </div>
 );
+
+export const ContactFormPopup: React.FC<PopupProps & { pkgName?: string | null }> = ({ onClose, pkgName }) => {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [website, setWebsite] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Stub: send data to API or tracking endpoint
+    console.log('Contact form submit', { pkgName, name, email, phone, website });
+    setSubmitted(true);
+    setTimeout(() => {
+      onClose();
+    }, 1400);
+  };
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 relative animate-scaleIn border-t-8 border-orange-500">
+        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+          <X className="w-6 h-6" />
+        </button>
+        <div className="text-center mb-4">
+          <h3 className="text-2xl font-black text-blue-900 mb-2">Déjanos tus datos y nos contactamos</h3>
+          <p className="text-gray-600 text-sm">Ingresa tu nombre completo, correo, teléfono y la URL de tu sitio para que podamos coordinar la implementación o enviarte una propuesta.</p>
+          {pkgName && <p className="mt-3 text-sm font-bold text-gray-700">Has seleccionado: <span className="text-orange-600">{pkgName}</span></p>}
+        </div>
+
+        {!submitted ? (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre completo" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <input required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Teléfono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <input required value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="Tu sitio web (https://tusitio.com)" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-2xl font-black">Enviar y que nos contacten</button>
+          </form>
+        ) : (
+          <div className="py-8 text-center">
+            <div className="text-green-600 font-black text-2xl mb-3">¡Gracias!</div>
+            <div className="text-gray-600">Recibimos tus datos. Te contactamos en menos de 2 horas.</div>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+};

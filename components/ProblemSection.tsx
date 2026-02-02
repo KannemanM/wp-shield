@@ -35,9 +35,9 @@ export const ProblemSection: React.FC = () => {
               </div>
             ))}
             
-            <button className="mt-8 text-orange-400 font-bold text-xl flex items-center gap-2 hover:translate-x-2 transition-transform">
+            <a href="#contratar" className="mt-8 text-orange-400 font-bold text-xl flex items-center gap-2 hover:translate-x-2 transition-transform">
               Protege tu sitio ahora!
-            </button>
+            </a>
           </div>
 
           <div className="relative">

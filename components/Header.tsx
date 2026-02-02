@@ -16,9 +16,9 @@ export const Header: React.FC = () => {
         </div>
         
         <div className="flex items-center gap-4">
-          <button type="button" className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all transform hover:scale-105">
+          <a href="#contratar" className="inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all transform hover:scale-105">
             Contratar ahora
-          </button>
+          </a>
         </div>
       </div>
     </header>
