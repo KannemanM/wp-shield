@@ -43,7 +43,7 @@ export const FinalCTA: React.FC = () => {
                   <Calendar className="w-5 h-5" />
                   AGENDAR LLAMADA 15 MIN
                 </button>
-                <a href="#contratar" className="bg-blue-600/20 hover:bg-blue-600/40 text-blue-100 px-8 py-4 rounded-2xl font-bold transition-colors inline-flex items-center justify-center">
+                <a href="#precios" className="bg-blue-600/20 hover:bg-blue-600/40 text-blue-100 px-8 py-4 rounded-2xl font-bold transition-colors inline-flex items-center justify-center">
                   📋 PROTEGE TU SITIO AHORA!
                 </a>
               </div>
